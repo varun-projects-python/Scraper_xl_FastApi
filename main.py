@@ -18,7 +18,7 @@
 import json
 from fastapi import FastAPI
 from API.flipkart_sc import FK_result_maker
-
+from API.newfk_sc import *
 
 
 app = FastAPI()
@@ -27,29 +27,68 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return {
-        "api_name": "flipkart-product-tracket(pricebefore)",
-        "repository": "https://github.com/dvishal485/flipkart-product-stock",
-        "author": "donottell.com",
-        "description": "API to scrapes product details from Flipkart",
-        "usage": "https://flipkart-product-stock.herokuapp.com/product?link={product_link}",
-        "example": "https://flipkart-product-stock.herokuapp.com/product?link=https://dl.flipkart.com/s/WaqrsvNNNN"
+        '/': 'This is home page'
     }
-
-
-@app.get("/")
-def login():
-    pass
-
-# http://xyz.render.com/flipkart?id=
 
 @app.get("/flipkart/{FSN}")
 async def read_item(FSN: str):
     res = FK_result_maker(FSN)
     return json.loads(json.dumps(res))
 
+@app.get("/fk/pname/{FSN}")
+async def read_item(FSN: str):
+    res = FK_name(FSN)
+    return res
 
-# http://xyz.render.com/amazon?id=
-# @app.get("/amazon/{ASIN}")
-# async def read_item(ASIN: str):
-#     res = AMZ_result_maker(ASIN)
-#     return json.loads(json.dumps(res))
+
+@app.get("/fk/sname/{FSN}")
+async def read_item(FSN: str):
+    res = FK_seller_name(FSN)
+    return res
+
+
+@app.get("/fk/price/{FSN}")
+async def read_item(FSN: str):
+    res = FK_price(FSN)
+    return res
+
+
+@app.get("/fk/mrp/{FSN}")
+async def read_item(FSN: str):
+    res = FK_mrp(FSN)
+    return res
+
+
+@app.get("/fk/rating/{FSN}")
+async def read_item(FSN: str):
+    res = FK_rating(FSN)
+    return res
+
+
+@app.get("/fk/c-rating/{FSN}")
+async def read_item(FSN: str):
+    res = FK_count_rating(FSN)
+    return res
+
+
+@app.get("/fk/c-review/{FSN}")
+async def FK_count_review(FSN: str):
+    res = FK_name(FSN)
+    return res
+
+
+@app.get("/fk/pname/{FSN}")
+async def read_item(FSN: str):
+    res = FK_name(FSN)
+    return res
+
+
+@app.get("/fk/moq/{FSN}")
+async def read_item(FSN: str):
+    res = FK_min_odr_qty(FSN)
+    return res
+
+@app.get("/fk/is-fassured/{FSN}")
+async def read_item(FSN: str):
+    res = FK_is_fassured(FSN)
+    return res
