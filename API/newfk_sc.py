@@ -33,7 +33,7 @@ def FK_name(FSN):
     return {'Exception' : f'{str(e)}',}
 
 
-def FK _seller_name(soup):
+def FK_seller_name(soup):
   try:
     url = f'{FK_base_url}{FSN}'
     global res
