@@ -1,0 +1,7 @@
+fastapi[all]
+uvicorn[standard]
+playwright
+amazoncaptcha
+pandas
+bs4
+requests
