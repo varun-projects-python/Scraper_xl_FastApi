@@ -14,11 +14,11 @@
 #     return {"item_id": item_id, "q": q}
 
 
-from typing import Optional
+
 import json
 from fastapi import FastAPI
 from API.flipkart_sc import FK_result_maker
-from API.amazon_sc import AMZ_result_maker
+
 
 
 app = FastAPI()
