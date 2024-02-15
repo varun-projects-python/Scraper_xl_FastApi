@@ -38,7 +38,7 @@ def FK_name(FSN):
   try:
     url = f'{FK_base_url}{FSN}'
     initialise(url)
-    name_tag = soup.find('span', {'class': 'B_NuCI'}):
+    name_tag = soup.find('span', {'class': 'B_NuCI'})
     product_name = name_tag.get_text()
     return product_name
   except Exception as e:
