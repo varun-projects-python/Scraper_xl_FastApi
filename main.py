@@ -66,14 +66,14 @@ async def read_item(FSN: str):
 
 
 @app.get("/fk/c-rating/{FSN}")
-async def read_item(FSN: str):
+async def FK_count_rating(FSN: str):
     res = FK_count_rating(FSN)
     return res
 
 
 @app.get("/fk/c-review/{FSN}")
 async def FK_count_review(FSN: str):
-    res = FK_name(FSN)
+    res = FK_count_review(FSN)
     return res
 
 
