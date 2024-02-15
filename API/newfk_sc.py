@@ -20,15 +20,26 @@ def initialise(url):
   uclient.close()
   soup = BeautifulSoup(page, 'html.parser')
 
+# def FK_name(FSN):
+#   try:
+#     url = f'{FK_base_url}{FSN}'
+#     initialise(url)
+#     global res
+#     for i in soup.find_all('span', {'class': 'B_NuCI'}):
+#         txt = i.get_text()
+#         res = "".join(re.split("[^a-zA-Z]*", txt))
+#     product_name = res
+#     return product_name
+#   except Exception as e:
+#     return {'Exception' : f'{str(e)}',}
+
+
 def FK_name(FSN):
   try:
     url = f'{FK_base_url}{FSN}'
     initialise(url)
-    global res
-    for i in soup.find_all('span', {'class': 'B_NuCI'}):
-        txt = i.get_text()
-        res = "".join(re.split("[^a-zA-Z]*", txt))
-    product_name = res
+    name_tag = soup.find('span', {'class': 'B_NuCI'}):
+    product_name = name_tag.get_text()
     return product_name
   except Exception as e:
     return {'Exception' : f'{str(e)}',}
