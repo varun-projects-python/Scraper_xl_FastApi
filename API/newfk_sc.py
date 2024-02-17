@@ -1,8 +1,11 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen as uReq
 import re
+import os
 
-FK_base_url = 'https://www.flipkart.com/product/p/itme?pid='
+# FK_base_url = 'https://www.flipkart.com/product/p/itme?pid='
+key = os.environ.get('abstractapi_key')
+FK_base_url = 'https://scrape.abstractapi.com/v1/?api_key=key&url=https://www.flipkart.com/product/p/itme?pid='
 FK_tags = {
     'price_class' : '_30jeq3 _16Jk6d', #div
     'fassured_class' : 'b7864- _2Z07dN', #span
